@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import Deck from './containers/deck.js'
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +23,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <Deck/>
       </div>
     );
   }
