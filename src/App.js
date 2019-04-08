@@ -20,7 +20,7 @@ class App extends Component {
       },
       method: 'POST'
     })
-    .then(function(res){ return res.json(); })
+    .then((res) => res.json())
     .then(deck =>
       this.setState({
         id: deck.data.id
@@ -42,11 +42,17 @@ class App extends Component {
 
   //new deck
   handleClick(){
-    fetch('http://localhost:3000/api/v1/decks/new')
-    .then(resp => resp.json())
+    fetch('http://localhost:3000/api/v1/decks/new', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    })
+    .then((res) => res.json())
     .then(deck =>
       this.setState({
-        deck: deck.data.attributes.cards
+        id: deck.data.id
       })
     )
   }
@@ -56,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={"src/images/AS.png"} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>

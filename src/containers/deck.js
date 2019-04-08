@@ -23,7 +23,7 @@ class Deck extends Component {
 
   deal(props){
     //show method from back end
-    // if(this.state.deal.length===0){
+     // if(this.state.deal.length===0){
       fetch(`http://localhost:3000/api/v1/decks/${this.props.id}`)
       .then(resp => resp.json())
       //.then(deck => console.log(deck.data.attributes.cards[0]))
