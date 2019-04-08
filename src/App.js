@@ -9,21 +9,36 @@ class App extends Component {
   constructor(props){
     super(props);
       this.state ={
-        deck: [],
+        id: ''
       }
   }
-
-  // original deck
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/decks/new')
-    .then(resp => resp.json())
-    //.then(deck => console.log(deck.data.attributes.cards[0]))
+    fetch('http://localhost:3000/api/v1/decks/new', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST'
+    })
+    .then(function(res){ return res.json(); })
     .then(deck =>
       this.setState({
-        deck: deck.data.attributes.cards
+        id: deck.data.id
       })
     )
   }
+
+  // original deck
+  // componentDidMount(){
+  //   fetch('http://localhost:3000/api/v1/decks/new')
+  //   .then(resp => resp.json())
+  //   //.then(deck => console.log(deck.data.attributes.cards[0]))
+  //   .then(deck =>
+  //     this.setState({
+  //       deck: deck.data.attributes.cards
+  //     })
+  //   )
+  // }
 
   //new deck
   handleClick(){
@@ -37,6 +52,7 @@ class App extends Component {
   }
 
   render() {
+    // console.log(this.state)
     return (
       <div className="App">
         <header className="App-header">
@@ -54,7 +70,7 @@ class App extends Component {
           </a>
         </header>
         <button onClick={()=>this.handleClick()}>New Deck</button>
-        <Deck deck={this.state.deck}/>
+        <Deck id={this.state.id}/>
       </div>
     );
   }
