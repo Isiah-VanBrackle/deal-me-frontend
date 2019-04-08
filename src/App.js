@@ -6,6 +6,36 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+      this.state ={
+        deck: [],
+      }
+  }
+
+  // original deck
+  componentDidMount(){
+    fetch('http://localhost:3000/api/v1/decks/new')
+    .then(resp => resp.json())
+    //.then(deck => console.log(deck.data.attributes.cards[0]))
+    .then(deck =>
+      this.setState({
+        deck: deck.data.attributes.cards
+      })
+    )
+  }
+
+  //new deck
+  handleClick(){
+    fetch('http://localhost:3000/api/v1/decks/new')
+    .then(resp => resp.json())
+    .then(deck =>
+      this.setState({
+        deck: deck.data.attributes.cards
+      })
+    )
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,7 +53,8 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <Deck/>
+        <button onClick={()=>this.handleClick()}>New Deck</button>
+        <Deck deck={this.state.deck}/>
       </div>
     );
   }
