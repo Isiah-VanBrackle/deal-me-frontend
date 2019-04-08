@@ -42,9 +42,10 @@ class Deck extends Component {
       })
       .then(function(res){ return res.json(); })
       .then(deck =>
-        this.setState({
-          deal: deck.data.attributes.deal
-        })
+        console.log(deck)
+        // this.setState({
+        //   deal: deck.data.attributes.deal
+        // })
       )
     }
   }
