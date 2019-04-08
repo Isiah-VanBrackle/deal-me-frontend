@@ -23,50 +23,37 @@ class Deck extends Component {
 
   deal(props){
     //show method from back end
-     // if(this.state.deal.length===0){
+      if(this.state.deal.length===0){
       fetch(`http://localhost:3000/api/v1/decks/${this.props.id}`)
       .then(resp => resp.json())
       //.then(deck => console.log(deck.data.attributes.cards[0]))
-      .then(deck => console.log(deck)
-        // this.setState({
-        //   deal: deck.data.attributes.deal
-        // })
+      .then(deck =>
+        this.setState({
+          deal: deck.data.attributes.deal
+        })
       )
-    // }else{ //update method from back end
-    //   fetch(`http://localhost:3000/api/v1/decks/${this.props.id}/deal`, {
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     method: 'PUT'
-    //   })
-    //   .then(function(res){ return res.json(); })
-    //   .then(deck =>
-    //     this.setState({
-    //       deal: deck.data.attributes.deal
-    //     })
-    //   )
-    // }
-
+    }else{ //update method from back end
+      fetch(`http://localhost:3000/api/v1/decks/${this.props.id}/deal`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'PUT'
+      })
+      .then(function(res){ return res.json(); })
+      .then(deck =>
+        this.setState({
+          deal: deck.data.attributes.deal
+        })
+      )
+    }
   }
-
-  // deal(props){
-  //   console.log(props)
-  //   let count = 0
-  //   let card_array = []
-  //   while(count < 5){
-  //     card_array.push(props.deck.shift())
-  //     count++
-  //   }
-  //   this.setState({
-  //     deal: card_array
-  //   })
-  // }
 
   render() {
      return (
        <div>
        <button onClick={() => this.deal(this.props)}>Deal Cards</button>
+       {this.state.deal.map((card) =>{ return <Card key={card.id} card={card}/>})}
        </div>
      )
     // this closes render()
