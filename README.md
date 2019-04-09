@@ -1,8 +1,8 @@
-#Deal-me-Frontend
+# Deal-me-Frontend
 
 Deal-me is a single page web application designed to let users to open up new decks and deal the cards onto the page.
 
-#Getting Started
+# Getting Started
 To begin you'll want to clone down both this Frontend repository and the Backend. The instructions below will focus on getting the Frontend up and running.  I'd recommend you completely set up the Backend first to avoid a "server in use error."
 * Note: There is a latency issue, I'd advise you to wait a bit after setting up the front and backends before clicking the <New Deck> or <Deal Cards> buttons to see the shuffled versions.
 
