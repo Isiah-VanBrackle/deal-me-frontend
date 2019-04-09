@@ -8,13 +8,14 @@ To begin you'll want to clone down both this Frontend repository and the Backend
 
 # Installing
 In the project directory, you can run:
+### `npm install`
 
 ### `npm start`
 
 this runs the app in the development mode.<br>
 If you've already got the backend running it will say
 * Something is already running on port 3000. Probably:
-  puma 3.12.1 (tcp://localhost:3000) [deal-me]
+  `puma 3.12.1 (tcp://localhost:3000) [deal-me]`
 and ask
 * Would you like to run the app on another port instead? (Y/n)
 simply hit the <y> key and it will
@@ -27,7 +28,7 @@ You will also see any lint errors in the console.
 *Javascript*,
 *CSS*,
 *HTML*
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
 
