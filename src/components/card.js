@@ -1,14 +1,14 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 
 const Card = (props) => {
   console.log("Deck results", props.card)
   return(
-    <Fragment>
-      {props.card.card_type}
-    </Fragment>
+    <div className='sidebyside'>
+      <img src={`${props.card.image}`}/>
+    </div>
   )
-  // ^props.card.image
   // this closes Card function
 }
+//<div className='sidebyside'> added so i could make the cards sidebyside
 //<img src={`..${this.props.image}`} />
 export default Card
